@@ -211,15 +211,21 @@ p {
 /* ===== HERO SECTION ===== */
 
 .hero{
-    position: relative;
-    width:100%;
     min-height:100vh;
-
     display:flex;
-    align-items:center;
     justify-content:center;
-
+    align-items:center;
+    text-align:center;
+    position:relative;
     overflow:hidden;
+
+    background:
+    linear-gradient(rgba(7,12,20,.72), rgba(7,12,20,.78)),
+    url("../images/hero-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
 }
 
 .hero::before {
