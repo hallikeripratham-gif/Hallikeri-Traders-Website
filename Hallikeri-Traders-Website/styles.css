@@ -59,7 +59,8 @@ body {
     font-family: 'DM Sans', 'Segoe UI', sans-serif;
     line-height: 1.7;
     color: var(--text-primary);
-    background: var(--bg-primary);
+
+    background: red !important;
 
     width: 100%;
     min-width: 320px;
@@ -72,7 +73,6 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
 
 .container {
     width: min(1280px, 92%);
