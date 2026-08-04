@@ -66,8 +66,13 @@ body {
     overflow-x: hidden;
 
     margin: 0;
-    padding: 0;
+    padding: 110px 0 0 0;
+
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
 
 .container {
     width: min(1280px, 92%);
@@ -110,15 +115,48 @@ p {
 
 /* ===== NAVIGATION BAR ===== */
 
-.navbar {
-      width:100%;
-    background-color: rgba(15, 20, 25, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(74, 144, 164, 0.1);
+..navbar{
+
+    position: fixed;
+
+    top:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:calc(100% - 80px);
+
+    max-width:1450px;
+
+    height:78px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(12,16,20,.55);
+
+    backdrop-filter:blur(22px);
+
+    -webkit-backdrop-filter:blur(22px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    box-shadow:
+
+        0 15px 45px rgba(0,0,0,.28),
+
+        inset 0 1px 0 rgba(255,255,255,.05);
+
+    z-index:9999;
+
+    transition:all .45s cubic-bezier(.22,1,.36,1);
+
 }
 
 .navbar .container {
