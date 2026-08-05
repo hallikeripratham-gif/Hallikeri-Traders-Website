@@ -39,40 +39,44 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Handle form submission
 const contactForm = document.getElementById('contactForm');
+let isSubmitting = false;
 contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    // Get form values
-    const formData = new FormData(this);
+
+    if (isSubmitting) {
+        return;
+    }
+
     const name = this.querySelector('input[type="text"]').value;
     const email = this.querySelector('input[type="email"]').value;
     const message = this.querySelector('textarea').value;
-    
+
     // Basic validation
     if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
         showNotification('Please fill in all fields', 'error');
         return;
     }
-    
+
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         showNotification('Please enter a valid email address', 'error');
         return;
     }
-    
-    // Simulate form submission (in real scenario, this would send to a server)
+
+    isSubmitting = true;
     const submitBtn = this.querySelector('.submit-btn');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
-    
+
     // Simulate network delay
     setTimeout(() => {
         showNotification('Message sent successfully! We will contact you soon.', 'success');
         this.reset();
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
+        isSubmitting = false;
     }, 1500);
 });
 
@@ -237,21 +241,6 @@ document.addEventListener('click', function(e) {
     if (!e.target.closest('.navbar')) {
         navLinks.classList.remove('active');
     }
-});
-
-// Prevent multiple form submissions
-let isSubmitting = false;
-
-contactForm.addEventListener('submit', function(e) {
-    if (isSubmitting) {
-        e.preventDefault();
-        return;
-    }
-    isSubmitting = true;
-    
-    setTimeout(() => {
-        isSubmitting = false;
-    }, 2000);
 });
 
 // Initialize tooltips or help text
